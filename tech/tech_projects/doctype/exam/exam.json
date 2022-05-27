@@ -77,7 +77,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-27 18:03:48.386223",
+ "modified": "2022-05-27 18:51:19.968157",
  "modified_by": "Administrator",
  "module": "Tech Projects",
  "name": "Exam",
@@ -93,6 +93,17 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Exam User",
+   "select": 1,
    "share": 1,
    "write": 1
   }

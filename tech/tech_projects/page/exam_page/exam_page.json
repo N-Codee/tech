@@ -4,13 +4,23 @@
  "docstatus": 0,
  "doctype": "Page",
  "idx": 0,
- "modified": "2022-05-25 22:09:36.170808",
+ "modified": "2022-05-27 18:47:07.976228",
  "modified_by": "Administrator",
  "module": "Tech Projects",
  "name": "exam-page",
  "owner": "Administrator",
  "page_name": "exam-page",
- "roles": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "Exam User"
+  }
+ ],
  "script": null,
  "standard": "Yes",
  "style": null,

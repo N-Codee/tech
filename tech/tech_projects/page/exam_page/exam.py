@@ -65,11 +65,11 @@ def update_exam_result(user_name, e_mail, exam_title, exam_start_time, exam_end_
             "mark": mark
         })
 
-    doc.save()
+    doc.save(ignore_permissions=True)
     # frappe.throw(str(doc.total_mark))
     examdoc = frappe.get_doc("Exam",exam_doc)
     examdoc.attended_count += 1
-    examdoc.save()
+    examdoc.save(ignore_permissions=True)
     
     frappe.msgprint("Exam Saved Sucessfully ",alert=True, indicator="green")
     return doc.total_mark
