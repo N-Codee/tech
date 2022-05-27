@@ -3,11 +3,6 @@ import frappe
 import json
 
 
-@frappe.whitelist()
-def test(name):
-	return frappe.db.sql(""" select questions from `tabExam Questions`
-    where parent = %s
-     """,(name),as_dict=1)
 
 @frappe.whitelist()
 def fetch_questions(name):
@@ -19,32 +14,19 @@ def fetch_questions(name):
             data = frappe.db.sql(""" select msq.name, msq.idx, msq.question ans_opt, msq.answer,msq.parent, q.question_type, q.question from `tabMSQ Questions` msq
                                             left join `tabQuestion` q on msq.parent = q.name
                                              where msq.parent = %s """,(record.questions),as_dict=1)
-            # frappe.throw(str(data))
-            # data.insert(0,"MCQ")
-            # data.insert(1,frappe.db.get_value("Question",record.questions,"question"))
             ls.append(data)
          
         if question_type == "One Word":
             data = frappe.db.sql(""" select question_type,question, one_word_ans from `tabQuestion` where name = %s """,(record.questions),as_dict=1)
-            # data.insert(0,"One Word")
-            # data.insert(1,frappe.db.get_value("Question",record.questions,"question"))
-            # frappe.throw(str(data))
             ls.append(data)
-    # frappe.throw(str(ls))
     return ls
 @frappe.whitelist()
 def extact_class_id(rc_name):
     question_id = []
-    answer_id = []
-    dup = []
     data = fetch_questions(rc_name)
     for row in data:
         for i in row:
             if i.question_type == "MCQ":
-                if i.answer == 1:
-                    ans = i.ans_opt
-                else:
-                    ans = None
                 question_id.append({
                     "question_id": i.question,
                     "answer_id": i.ans_opt + str(i.idx),
@@ -62,7 +44,7 @@ def extact_class_id(rc_name):
     return question_id
     
 @frappe.whitelist()
-def update_exam_result(user_name, e_mail, exam_title, exam_start_time, exam_end_time, exam_rcord):
+def update_exam_result(user_name, e_mail, exam_title, exam_start_time, exam_end_time, exam_doc, exam_rcord):
     exam_rcord = json.loads(exam_rcord)
     doc = frappe.new_doc("Exam Records")
     doc.user_name = user_name
@@ -84,5 +66,10 @@ def update_exam_result(user_name, e_mail, exam_title, exam_start_time, exam_end_
         })
 
     doc.save()
-
+    # frappe.throw(str(doc.total_mark))
+    examdoc = frappe.get_doc("Exam",exam_doc)
+    examdoc.attended_count += 1
+    examdoc.save()
+    
     frappe.msgprint("Exam Saved Sucessfully ",alert=True, indicator="green")
+    return doc.total_mark

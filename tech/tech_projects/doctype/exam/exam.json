@@ -14,7 +14,8 @@
   "column_break_4",
   "slot_close",
   "the_number_of_users",
-  "status"
+  "status",
+  "attended_count"
  ],
  "fields": [
   {
@@ -66,11 +67,17 @@
    "fieldtype": "Table MultiSelect",
    "label": "Questions",
    "options": "Exam Questions"
+  },
+  {
+   "default": "0",
+   "fieldname": "attended_count",
+   "fieldtype": "Int",
+   "label": "Attended Count"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-26 18:05:21.859703",
+ "modified": "2022-05-27 18:03:48.386223",
  "modified_by": "Administrator",
  "module": "Tech Projects",
  "name": "Exam",

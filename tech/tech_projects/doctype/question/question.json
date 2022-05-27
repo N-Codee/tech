@@ -10,8 +10,7 @@
   "question_type",
   "question",
   "msq_questions",
-  "one_word_ans",
-  "s"
+  "one_word_ans"
  ],
  "fields": [
   {
@@ -42,17 +41,11 @@
    "fieldtype": "Data",
    "label": "One Word Ans",
    "mandatory_depends_on": "eval:doc.question_type == \"One Word\""
-  },
-  {
-   "fieldname": "s",
-   "fieldtype": "Link",
-   "label": "s",
-   "options": "Exam"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-26 18:00:02.509175",
+ "modified": "2022-05-27 17:12:11.632023",
  "modified_by": "Administrator",
  "module": "Tech Projects",
  "name": "Question",

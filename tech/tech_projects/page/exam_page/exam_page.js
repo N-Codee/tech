@@ -42,6 +42,7 @@ frappe.ExamPage = Class.extend({
 	},
 
 	refresh: function() {	
+
 		if(!this.exam) {
 			this.show_start();
 		} else {
@@ -117,6 +118,9 @@ frappe.ExamPage = Class.extend({
 				options: 'Exam',
 				read_only: '0',
 				label: __("Exam Record"),
+				filters: {
+					status: "Open"
+				},
 			},
 			render_input: true
 		});
@@ -168,12 +172,21 @@ frappe.ExamPage = Class.extend({
 			},
 			render_input: true
 		});
+		this.exam_score = frappe.ui.form.make_control({
+			parent: this.page.main.find(".exam-end-time"),
+			df: {
+				fieldtype: "Int",
+				fieldname: "exam_score",
+				label: __("Your Score"),
+			},
+			render_input: true
+		});
 		
 	},
 	setup_details: function() {
 		var me = this;
 		frappe.db.get_doc('Exam', this.exam.name).then((doc) => {
-			this.exam = doc;
+		
 		
 		me.exam_no.set_value(this.exam.name);
 		me.exam_title.set_value(this.exam.exam_title);
@@ -190,27 +203,24 @@ frappe.ExamPage = Class.extend({
 			this.form.get_field('preview').html('');
 			return;
 		}
-		this.test()
+		this.fetch_template()
 		
 	},
 
-	test(){
-		$(frappe.render_template("test", {	
+	fetch_template(){
+		$(frappe.render_template("question_section", {	
 			data: this.layout_data, me: this}))
 			.appendTo(this.page.main);
 			frappe.call('tech.tech_projects.page.exam_page.exam.fetch_questions', {
 				name: this.exam.name,
 			}).then(r => {
 				let diff = r.message;
-				$(frappe.render_template("test2", {	
+				$(frappe.render_template("question", {	
 					data: diff, me: this}))
 					.appendTo(this.page.main);
 	
 			});
-		
-		
 	},
-	
 	
 	save: function(accept, table_names){
 		var me = this
@@ -268,9 +278,15 @@ frappe.ExamPage = Class.extend({
 				exam_title: me.exam.exam_title,
 				exam_start_time: this.exam_start_time.value,
 				exam_end_time:  this.exam_start_time.value,
+				exam_doc: me.exam.name,
 				exam_rcord: exam_dict
+			}).then( r =>{
+			
+				me.exam_score.set_value(r.message);
+				me.exam_score.read_only =1
 			})
 			
+			// location.reload()
 		});
 		
 	}

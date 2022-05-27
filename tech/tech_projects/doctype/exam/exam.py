@@ -5,8 +5,11 @@ import frappe
 from frappe.model.document import Document
 
 class Exam(Document):
-	pass
 
-@frappe.whitelist()
-def test(quality_inspection_template):
-	return frappe.db.sql(""" select questions from `tabExam` """,as_dict=1)
+	def validate(self):
+		if self.slot_open > self.slot_close:
+			frappe.throw("Slot Open time should be before Slot Close time")
+		if self.questions == []:
+			frappe.throw("please select questions")
+		if self.the_number_of_users == self.attended_count:
+			self.status = "Close"
