@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2022-05-25 21:19:52.710872",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "question",
+  "answer",
+  "d"
+ ],
+ "fields": [
+  {
+   "fieldname": "question",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Question"
+  },
+  {
+   "default": "0",
+   "fieldname": "answer",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Answer"
+  },
+  {
+   "fieldname": "d",
+   "fieldtype": "Link",
+   "label": "d",
+   "options": "Exam"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-05-26 18:00:44.082853",
+ "modified_by": "Administrator",
+ "module": "Tech Projects",
+ "name": "MSQ Questions",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

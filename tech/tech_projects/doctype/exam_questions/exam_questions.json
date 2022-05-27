@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-05-26 18:02:44.284750",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "questions"
+ ],
+ "fields": [
+  {
+   "fieldname": "questions",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Questions",
+   "options": "Question"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-05-26 18:06:10.639190",
+ "modified_by": "Administrator",
+ "module": "Tech Projects",
+ "name": "Exam Questions",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

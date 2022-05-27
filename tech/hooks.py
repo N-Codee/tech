@@ -7,6 +7,8 @@ app_description = "Tech"
 app_email = "alexbenny94@gmail.com"
 app_license = "MIT"
 
+app_logo_url = '/assets/tech/images/NewTux.svg'
+
 # Includes in <head>
 # ------------------
 
@@ -44,6 +46,11 @@ app_license = "MIT"
 # role_home_page = {
 #	"Role": "home_page"
 # }
+
+website_context = {
+	"favicon": 	'/assets/tech/images/NewTux.svg',
+	"splash_image":'/assets/tech/images/NewTux.svg'
+}
 
 # Generators
 # ----------

@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "QUS - .###",
+ "creation": "2022-05-24 23:59:14.405100",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "question_type",
+  "question",
+  "msq_questions",
+  "one_word_ans",
+  "s"
+ ],
+ "fields": [
+  {
+   "depends_on": "eval:doc.question_type == \"MCQ\"",
+   "fieldname": "msq_questions",
+   "fieldtype": "Table",
+   "label": "MSQ Questions",
+   "mandatory_depends_on": "eval:doc.question_type == \"MCQ\"",
+   "options": "MSQ Questions"
+  },
+  {
+   "fieldname": "question_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Question Type",
+   "options": "\nMCQ\nOne Word",
+   "reqd": 1
+  },
+  {
+   "fieldname": "question",
+   "fieldtype": "Data",
+   "label": "Question",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.question_type == \"One Word\"",
+   "fieldname": "one_word_ans",
+   "fieldtype": "Data",
+   "label": "One Word Ans",
+   "mandatory_depends_on": "eval:doc.question_type == \"One Word\""
+  },
+  {
+   "fieldname": "s",
+   "fieldtype": "Link",
+   "label": "s",
+   "options": "Exam"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-05-26 18:00:02.509175",
+ "modified_by": "Administrator",
+ "module": "Tech Projects",
+ "name": "Question",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Exam - .####",
+ "creation": "2022-05-24 23:56:58.506526",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "slot_open",
+  "exam_title",
+  "questions",
+  "description",
+  "column_break_4",
+  "slot_close",
+  "the_number_of_users",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "slot_open",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Slot Open",
+   "reqd": 1
+  },
+  {
+   "fieldname": "slot_close",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Slot Close",
+   "reqd": 1
+  },
+  {
+   "fieldname": "exam_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Exam Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "the_number_of_users",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "The number of users",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nClose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "questions",
+   "fieldtype": "Table MultiSelect",
+   "label": "Questions",
+   "options": "Exam Questions"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-05-26 18:05:21.859703",
+ "modified_by": "Administrator",
+ "module": "Tech Projects",
+ "name": "Exam",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "EXM-RC- .####",
+ "creation": "2022-05-27 15:47:47.680003",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user_name",
+  "user_mail_id",
+  "exam_title",
+  "column_break_4",
+  "exam_start_time",
+  "exam_end_time",
+  "section_break_7",
+  "exam_records_details",
+  "total_mark"
+ ],
+ "fields": [
+  {
+   "fieldname": "user_name",
+   "fieldtype": "Data",
+   "label": "User Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "user_mail_id",
+   "fieldtype": "Data",
+   "label": "User Mail Id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exam_title",
+   "fieldtype": "Data",
+   "label": "Exam Title",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exam_start_time",
+   "fieldtype": "Datetime",
+   "label": "Exam Start time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exam_end_time",
+   "fieldtype": "Datetime",
+   "label": "Exam End time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "exam_records_details",
+   "fieldtype": "Table",
+   "label": "Exam Records Details",
+   "options": "Exam Records Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_mark",
+   "fieldtype": "Int",
+   "label": "Total Mark",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-05-27 17:00:08.707224",
+ "modified_by": "Administrator",
+ "module": "Tech Projects",
+ "name": "Exam Records",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
